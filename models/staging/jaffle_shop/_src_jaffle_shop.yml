@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: raw
+    schema: jaffle_shop
+    description: "The source data for the jaffle shop project."    
+    tables:
+      - name: customers
+      - name: orders
