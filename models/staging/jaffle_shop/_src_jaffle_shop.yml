@@ -2,9 +2,35 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: A clone of a Postres database
     database: raw
     schema: jaffle_shop
-    description: "The source data for the jaffle shop project."    
     tables:
       - name: customers
+        description: Raw customers data
+        columns:
+          - name: id
+            description: the primary key
+            data_tests:
+              - unique
+              - not_null
+          - name: first_name
+            description: the first name of the customer
+          - name: last_name
+            description: the last name of the customer
       - name: orders
+        description: Raw orders data
+        columns:
+          - name: id
+            description: the primary key
+            data_tests:
+              - unique
+              - not_null
+          - name: user_id
+            description: the foreign key to the customers table
+          - name: status
+            description: the status of the order
+          - name: order_date
+            description: the date the order was placed
+          - name: _etl_loaded_at
+            description: the timestamp of when the row was inserted into the raw table
