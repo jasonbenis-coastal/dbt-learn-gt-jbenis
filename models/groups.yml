@@ -1,0 +1,11 @@
+groups:
+  - name: finance
+    description: "Models related to finance"
+    owner:
+      name: "Jason Benis"
+      email: "jason.benis@coastalcloud.us"
+  - name: marketing
+    description: "Models related to marketing"
+    owner:
+      name: "Jason Benis"
+      email: "jason.benis@coastalcloud.us"

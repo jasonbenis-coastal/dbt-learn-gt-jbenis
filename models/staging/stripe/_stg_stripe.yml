@@ -1,6 +1,8 @@
 models:
   - name: stg_stripe__payments
     description: one unique payment per row
+    config:
+      access: protected
     columns:
     - name: payment_id
       description: the primary key

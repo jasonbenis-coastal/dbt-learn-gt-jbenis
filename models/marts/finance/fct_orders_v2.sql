@@ -2,7 +2,8 @@
     config(
         materialized='incremental',
         incremental_strategy='merge',
-        unique_key='order_id'
+        unique_key='order_id',
+        on_schema_change='fail'
     )
 }}
 
@@ -34,7 +35,7 @@ final as (
         orders.order_id,
         orders.customer_id,
         orders.order_date,
-        coalesce(order_payments.amount, 0) as amount
+        coalesce(order_payments.amount, 0) as order_amount
 
     from orders
     join order_payments using (order_id)

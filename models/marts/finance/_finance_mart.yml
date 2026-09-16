@@ -1,0 +1,35 @@
+models:
+  - name: fct_orders
+    config:
+      contract: 
+        enforced: true
+      group: finance
+      access: protected
+    latest_version: 2
+    columns:
+      - name: order_id
+        data_type: integer
+        constraints:
+          - type: unique
+            warn_unenforced: false
+          - type: not_null
+      - name: customer_id
+        data_type: integer
+        constraints:
+          - type: not_null
+      - name: order_date
+        data_type: date
+        constraints:
+          - type: not_null
+      - name: amount
+        data_type: numeric(38,2)
+    versions:
+      - v: 1
+        config:
+          alias: fct_orders_v1
+      - v: 2
+        columns:
+          - name: order_amount
+            data_type: numeric(38,2)
+          - include: all
+            exclude: [amount]

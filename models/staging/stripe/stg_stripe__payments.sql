@@ -10,7 +10,7 @@ renamed as (
         paymentmethod as payment_method,
         status,
         -- amount is stored in cents, convert it to dollars        
-        amount / 100 as amount,
+        {{ cents_to_dollars('amount') }} as amount,
         created as created_at,
         _batched_at as updated_at
     

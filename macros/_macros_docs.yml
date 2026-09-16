@@ -1,0 +1,24 @@
+macros:
+  - name: cents_to_dollars
+    description: |
+      Converts a column value from cents to dollars, rounding to the specified number of decimal places.
+    arguments:
+      - name: column_name
+        description: The name of the column to convert from cents to dollars.
+        type: string
+      - name: decimals
+        description: The number of decimal places to round the result to. Default is 2.
+        type: integer
+  - name: grant_select
+    description: |
+      Grants SELECT privileges on all tables and views in a specified schema to a specified role.
+    arguments:
+      - name: schema
+        description: The name of the schema to grant privileges on. Default is the target schema.
+        type: string
+      - name: role
+        description: The name of the role to grant privileges to. Default is the target role.
+        type: string
+      - name: database
+        description: The name of the database to use before granting privileges. Default is the target database.
+        type: string
