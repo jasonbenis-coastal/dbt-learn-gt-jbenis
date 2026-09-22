@@ -1,0 +1,25 @@
+models:
+  - name: int_orders__pivoted
+    columns:
+      - name: order_id
+        description: The primary key for the orders table.
+        data_type: integer
+        constraints:
+          - type: unique
+            warn_unenforced: false
+          - type: not_null
+        data_tests:
+          - unique
+          - not_null
+  - name: all_dates
+    columns:
+      - name: date_day
+        description: The date of the order.
+        data_type: date
+        constraints:
+          - type: unique
+            warn_unenforced: false
+          - type: not_null        
+        data_tests:
+          - unique
+          - not_null

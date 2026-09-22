@@ -1,12 +1,3 @@
-{{
-    config(
-        materialized='incremental',
-        incremental_strategy='merge',
-        unique_key='order_id',
-        on_schema_change='fail'
-    )
-}}
-
 with orders as (
 
     select * from {{ ref('stg_jaffle_shop__orders')}}
@@ -42,8 +33,3 @@ final as (
 )
 
 select * from final
-{% if is_incremental() %}
-    -- this will only be applised to incremental runs, and will filter out any rows that have already been processed
-    where order_date >= (select max(order_date) from {{ this }})
-{% endif %}
-order by order_date desc
